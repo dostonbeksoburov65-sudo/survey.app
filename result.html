@@ -1,0 +1,111 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Your Result — {{ title }}</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@400;700&family=DM+Sans:wght@300;400;500&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="{{ url_for('static', filename='style.css') }}">
+    <script src="https://cdn.jsdelivr.net/npm/chart.js@4"></script>
+</head>
+<body>
+    <div class="bg-orb orb1"></div>
+    <div class="bg-orb orb2"></div>
+
+    <main class="result-page">
+        <div class="result-card animate-in">
+
+            <div class="result-header">
+                <div class="result-emoji">{{ state.emoji }}</div>
+                <h2 class="result-state" style="color: {{ state.color }}">{{ state.state }}</h2>
+                <p class="result-description">{{ state.description }}</p>
+            </div>
+
+            <div class="score-display">
+                <div class="score-circle" style="--score-color: {{ state.color }}">
+                    <span class="score-num">{{ result.score }}</span>
+                    <span class="score-max">/ {{ max_score }}</span>
+                </div>
+                <div class="score-pct">{{ result.percentage }}%</div>
+            </div>
+
+            <div class="result-info-grid">
+                <div class="info-item">
+                    <span class="info-label">Name</span>
+                    <span class="info-value">{{ result.name }}</span>
+                </div>
+                <div class="info-item">
+                    <span class="info-label">Student ID</span>
+                    <span class="info-value">{{ result.student_id }}</span>
+                </div>
+                <div class="info-item">
+                    <span class="info-label">Date of Birth</span>
+                    <span class="info-value">{{ result.date_of_birth }}</span>
+                </div>
+                <div class="info-item">
+                    <span class="info-label">Completed</span>
+                    <span class="info-value">{{ result.timestamp }}</span>
+                </div>
+            </div>
+
+            <div class="advice-box" style="border-left-color: {{ state.color }}">
+                <strong>💡 Advice:</strong> {{ state.advice }}
+            </div>
+
+            <div class="chart-section">
+                <h3 class="chart-title">Your Score Breakdown</h3>
+                <canvas id="resultChart" height="120"></canvas>
+            </div>
+
+            <div class="result-actions">
+                <a href="{{ url_for('index') }}" class="btn-primary">
+                    <span>Take Again</span>
+                    <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><path d="M5 12h14M12 5l7 7-7 7"/></svg>
+                </a>
+                <a href="{{ url_for('history') }}" class="btn-secondary">
+                    <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="12" cy="12" r="10"/><polyline points="12 6 12 12 16 14"/></svg>
+                    <span>All Results</span>
+                </a>
+            </div>
+
+        </div>
+    </main>
+
+    <script>
+        const score = {{ result.score }};
+        const maxScore = {{ max_score }};
+        const stateColor = "{{ state.color }}";
+
+        const ctx = document.getElementById('resultChart').getContext('2d');
+        new Chart(ctx, {
+            type: 'bar',
+            data: {
+                labels: ['Your Score', 'Maximum Score'],
+                datasets: [{
+                    label: 'Score',
+                    data: [score, maxScore],
+                    backgroundColor: [stateColor + 'cc', '#e2e8f0'],
+                    borderColor: [stateColor, '#cbd5e1'],
+                    borderWidth: 2,
+                    borderRadius: 8,
+                }]
+            },
+            options: {
+                responsive: true,
+                plugins: {
+                    legend: { display: false }
+                },
+                scales: {
+                    y: {
+                        beginAtZero: true,
+                        max: maxScore,
+                        grid: { color: '#f1f5f9' }
+                    },
+                    x: { grid: { display: false } }
+                }
+            }
+        });
+    </script>
+</body>
+</html>

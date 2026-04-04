@@ -1,0 +1,103 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Your Details — {{ title }}</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@400;700&family=DM+Sans:wght@300;400;500&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="{{ url_for('static', filename='style.css') }}">
+</head>
+<body>
+    <div class="bg-orb orb1"></div>
+    <div class="bg-orb orb2"></div>
+
+    <main class="form-page">
+        <div class="form-card animate-in">
+            <a href="{{ url_for('index') }}" class="back-link">
+                <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><path d="M19 12H5M12 19l-7-7 7-7"/></svg>
+                Back
+            </a>
+
+            <div class="form-header">
+                <div class="form-icon">📋</div>
+                <h2 class="form-title">Your Details</h2>
+                <p class="form-subtitle">Please fill in your information to begin the survey.</p>
+            </div>
+
+            <form method="POST" action="{{ url_for('start') }}" novalidate id="userForm">
+
+                <div class="field-group {% if errors.name %}has-error{% endif %}">
+                    <label for="name">Full Name</label>
+                    <input
+                        type="text"
+                        id="name"
+                        name="name"
+                        placeholder="e.g. John Smith or O'Connor"
+                        value="{{ request.form.get('name', '') }}"
+                        autocomplete="name"
+                    >
+                    {% if errors.name %}
+                        <span class="field-error">⚠ {{ errors.name }}</span>
+                    {% else %}
+                        <span class="field-hint">Letters, spaces, hyphens, and apostrophes only</span>
+                    {% endif %}
+                </div>
+
+                <div class="field-group {% if errors.dob %}has-error{% endif %}">
+                    <label for="dob">Date of Birth</label>
+                    <input
+                        type="date"
+                        id="dob"
+                        name="dob"
+                        value="{{ request.form.get('dob', '') }}"
+                        max="{{ now }}"
+                    >
+                    {% if errors.dob %}
+                        <span class="field-error">⚠ {{ errors.dob }}</span>
+                    {% else %}
+                        <span class="field-hint">Format: YYYY-MM-DD</span>
+                    {% endif %}
+                </div>
+
+                <div class="field-group {% if errors.student_id %}has-error{% endif %}">
+                    <label for="student_id">Student ID</label>
+                    <input
+                        type="text"
+                        id="student_id"
+                        name="student_id"
+                        placeholder="e.g. 220012345"
+                        value="{{ request.form.get('student_id', '') }}"
+                        autocomplete="off"
+                    >
+                    {% if errors.student_id %}
+                        <span class="field-error">⚠ {{ errors.student_id }}</span>
+                    {% else %}
+                        <span class="field-hint">Digits only (no letters or symbols)</span>
+                    {% endif %}
+                </div>
+
+                <button type="submit" class="btn-primary full-width">
+                    <span>Begin Survey</span>
+                    <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><path d="M5 12h14M12 5l7 7-7 7"/></svg>
+                </button>
+            </form>
+        </div>
+    </main>
+
+    <script>
+        // Live client-side validation feedback
+        document.getElementById('name').addEventListener('input', function() {
+            const val = this.value;
+            const invalid = /[^A-Za-z\s\-']/.test(val);
+            this.style.borderColor = invalid ? '#ef4444' : '';
+        });
+
+        document.getElementById('student_id').addEventListener('input', function() {
+            const val = this.value;
+            const invalid = /[^0-9]/.test(val);
+            this.style.borderColor = invalid ? '#ef4444' : '';
+        });
+    </script>
+</body>
+</html>

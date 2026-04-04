@@ -1,0 +1,60 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Past Results — {{ title }}</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@400;700&family=DM+Sans:wght@300;400;500&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="{{ url_for('static', filename='style.css') }}">
+</head>
+<body>
+    <div class="bg-orb orb1"></div>
+    <div class="bg-orb orb2"></div>
+
+    <main class="history-page">
+        <div class="history-container animate-in">
+            <div class="history-header">
+                <a href="{{ url_for('index') }}" class="back-link">
+                    <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><path d="M19 12H5M12 19l-7-7 7-7"/></svg>
+                    Back
+                </a>
+                <h2 class="history-title">Saved Results</h2>
+                <p class="history-subtitle">{{ results|length }} result(s) loaded from <code>results.json</code></p>
+            </div>
+
+            {% if results %}
+                <div class="results-list">
+                    {% for r in results|reverse %}
+                    <div class="result-row animate-in" style="animation-delay: {{ loop.index0 * 0.05 }}s">
+                        <div class="result-row-left">
+                            <div class="row-name">{{ r.name }}</div>
+                            <div class="row-meta">ID: {{ r.student_id }} &nbsp;·&nbsp; DOB: {{ r.date_of_birth }}</div>
+                            <div class="row-meta">{{ r.timestamp }}</div>
+                        </div>
+                        <div class="result-row-right">
+                            <div class="row-score">{{ r.score }} / {{ r.max_score }}</div>
+                            <div class="row-state">{{ r.state }}</div>
+                            <div class="row-pct">{{ r.percentage }}%</div>
+                        </div>
+                    </div>
+                    {% endfor %}
+                </div>
+            {% else %}
+                <div class="empty-state">
+                    <div class="empty-icon">📂</div>
+                    <p>No results saved yet. Take the survey to see results here.</p>
+                    <a href="{{ url_for('start') }}" class="btn-primary">Start Survey</a>
+                </div>
+            {% endif %}
+
+            <div class="history-actions">
+                <a href="{{ url_for('start') }}" class="btn-primary">
+                    <span>New Survey</span>
+                    <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><path d="M5 12h14M12 5l7 7-7 7"/></svg>
+                </a>
+            </div>
+        </div>
+    </main>
+</body>
+</html>

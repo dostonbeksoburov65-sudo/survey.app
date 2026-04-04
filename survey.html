@@ -1,0 +1,115 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Survey — {{ title }}</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@400;700&family=DM+Sans:wght@300;400;500&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="{{ url_for('static', filename='style.css') }}">
+</head>
+<body class="survey-body">
+    <header class="survey-header">
+        <div class="survey-header-inner">
+            <div class="header-left">
+                <span class="header-logo">🧠</span>
+                <span class="header-title">{{ title }}</span>
+            </div>
+            <div class="progress-wrap">
+                <span class="progress-label" id="progressLabel">0 / {{ total }} answered</span>
+                <div class="progress-bar-track">
+                    <div class="progress-bar-fill" id="progressFill" style="width: 0%"></div>
+                </div>
+            </div>
+        </div>
+    </header>
+
+    <main class="survey-main">
+        <div class="survey-intro">
+            <h2>Hello, <span class="accent">{{ name }}</span></h2>
+            <p>Answer all {{ total }} questions honestly. There are no right or wrong answers.</p>
+        </div>
+
+        {% if error %}
+        <div class="alert-error">
+            ⚠ {{ error }}
+        </div>
+        {% endif %}
+
+        <form method="POST" action="{{ url_for('submit') }}" id="surveyForm">
+
+            {% for q in questions %}
+            {% set qi = loop.index0 %}
+            <div class="question-card" id="qcard-{{ qi }}">
+                <div class="question-number">Question {{ loop.index }} of {{ total }}</div>
+                <div class="question-text">{{ q.question }}</div>
+                <div class="options-grid">
+                    {% for opt in q.options %}
+                    <label class="option-label">
+                        <input
+                            type="radio"
+                            name="q{{ qi }}"
+                            value="{{ opt.score }}"
+                            class="option-radio"
+                        >
+                        <span class="option-box">
+                            <span class="option-dot"></span>
+                            <span class="option-text">{{ opt.text }}</span>
+                            <span class="option-score">{{ opt.score }} pts</span>
+                        </span>
+                    </label>
+                    {% endfor %}
+                </div>
+            </div>
+            {% endfor %}
+
+            <div class="submit-section">
+                <div class="submit-info" id="submitInfo">
+                    Please answer all questions to submit.
+                </div>
+                <button type="submit" class="btn-primary btn-large" id="submitBtn">
+                    <span>Submit Survey</span>
+                    <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><path d="M5 12h14M12 5l7 7-7 7"/></svg>
+                </button>
+            </div>
+
+        </form>
+    </main>
+
+    <script>
+        const TOTAL = {{ total }};
+
+        function updateProgress() {
+            var answered = 0;
+            for (var i = 0; i < TOTAL; i++) {
+                if (document.querySelector('input[name="q' + i + '"]:checked')) {
+                    answered++;
+                }
+            }
+            var pct = (answered / TOTAL) * 100;
+            document.getElementById('progressFill').style.width = pct + '%';
+            document.getElementById('progressLabel').textContent = answered + ' / ' + TOTAL + ' answered';
+
+            if (answered === TOTAL) {
+                document.getElementById('submitInfo').textContent = '✓ All questions answered. Ready to submit!';
+                document.getElementById('submitInfo').style.color = '#10b981';
+            } else {
+                document.getElementById('submitInfo').textContent = 'Please answer all questions to submit (' + (TOTAL - answered) + ' remaining).';
+                document.getElementById('submitInfo').style.color = '';
+            }
+        }
+
+        document.querySelectorAll('.option-radio').forEach(function(radio) {
+            radio.addEventListener('change', function() {
+                var card = this.closest('.question-card');
+                card.querySelectorAll('.option-box').forEach(function(box) {
+                    box.classList.remove('selected');
+                });
+                var box = this.parentElement.querySelector('.option-box');
+                if (box) box.classList.add('selected');
+                updateProgress();
+            });
+        });
+    </script>
+</body>
+</html>

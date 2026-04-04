@@ -1,0 +1,40 @@
+[
+    {
+        "name": "Dostonbek",
+        "date_of_birth": "2006-11-25",
+        "student_id": "2514",
+        "score": 24,
+        "max_score": 80,
+        "percentage": 30.0,
+        "state": "Good Psychological Balance",
+        "answers": [
+            1,
+            1,
+            1,
+            2,
+            2,
+            1,
+            0,
+            2,
+            1,
+            0,
+            2,
+            1,
+            1,
+            0,
+            1,
+            2,
+            1,
+            1,
+            2,
+            2
+        ],
+        "timestamp": "2026-04-04 12:48:01",
+        "question_count": 20,
+        "valid_formats": [
+            "csv",
+            "json",
+            "txt"
+        ]
+    }
+]

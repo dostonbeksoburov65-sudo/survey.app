@@ -1,0 +1,202 @@
+[
+  {
+    "question": "How often do you feel emotionally balanced throughout the day?",
+    "options": [
+      {"text": "Almost always", "score": 0},
+      {"text": "Often", "score": 1},
+      {"text": "Sometimes", "score": 2},
+      {"text": "Rarely", "score": 3},
+      {"text": "Almost never", "score": 4}
+    ]
+  },
+  {
+    "question": "When something goes wrong unexpectedly, how quickly do you recover emotionally?",
+    "options": [
+      {"text": "Very quickly (within minutes)", "score": 0},
+      {"text": "Fairly quickly (within hours)", "score": 1},
+      {"text": "Takes a day or so", "score": 2},
+      {"text": "Takes several days", "score": 3},
+      {"text": "Takes a week or more", "score": 4}
+    ]
+  },
+  {
+    "question": "How well do you manage your emotions when under pressure?",
+    "options": [
+      {"text": "Very well", "score": 0},
+      {"text": "Fairly well", "score": 1},
+      {"text": "With some difficulty", "score": 2},
+      {"text": "With great difficulty", "score": 3},
+      {"text": "I struggle significantly", "score": 4}
+    ]
+  },
+  {
+    "question": "How often do you feel a sense of purpose or meaning in your daily activities?",
+    "options": [
+      {"text": "Always", "score": 0},
+      {"text": "Often", "score": 1},
+      {"text": "Occasionally", "score": 2},
+      {"text": "Rarely", "score": 3},
+      {"text": "Never", "score": 4}
+    ]
+  },
+  {
+    "question": "How would you rate your ability to adapt to unexpected changes in your routine?",
+    "options": [
+      {"text": "I adapt easily", "score": 0},
+      {"text": "I adapt well after a short time", "score": 1},
+      {"text": "I find it moderately challenging", "score": 2},
+      {"text": "I find it quite hard", "score": 3},
+      {"text": "I find it overwhelming", "score": 4}
+    ]
+  },
+  {
+    "question": "How often do you experience difficulty falling or staying asleep due to mental restlessness?",
+    "options": [
+      {"text": "Never", "score": 0},
+      {"text": "Rarely (once a month or less)", "score": 1},
+      {"text": "Sometimes (a few times a month)", "score": 2},
+      {"text": "Often (several times a week)", "score": 3},
+      {"text": "Almost every night", "score": 4}
+    ]
+  },
+  {
+    "question": "How comfortable are you with expressing your emotions to people you trust?",
+    "options": [
+      {"text": "Very comfortable", "score": 0},
+      {"text": "Fairly comfortable", "score": 1},
+      {"text": "Somewhat uncomfortable", "score": 2},
+      {"text": "Quite uncomfortable", "score": 3},
+      {"text": "I avoid it entirely", "score": 4}
+    ]
+  },
+  {
+    "question": "How often do you engage in activities that genuinely bring you joy?",
+    "options": [
+      {"text": "Daily", "score": 0},
+      {"text": "A few times a week", "score": 1},
+      {"text": "About once a week", "score": 2},
+      {"text": "Rarely", "score": 3},
+      {"text": "I no longer find things enjoyable", "score": 4}
+    ]
+  },
+  {
+    "question": "When you face a personal setback, how do you typically respond?",
+    "options": [
+      {"text": "I reflect, learn, and move forward", "score": 0},
+      {"text": "I recover after brief disappointment", "score": 1},
+      {"text": "I dwell on it for a while", "score": 2},
+      {"text": "I feel stuck for an extended period", "score": 3},
+      {"text": "I feel unable to move past it", "score": 4}
+    ]
+  },
+  {
+    "question": "How often do you feel that your emotional reactions match the actual situation?",
+    "options": [
+      {"text": "Almost always", "score": 0},
+      {"text": "Usually", "score": 1},
+      {"text": "Sometimes they feel disproportionate", "score": 2},
+      {"text": "Often they feel out of proportion", "score": 3},
+      {"text": "They almost never match", "score": 4}
+    ]
+  },
+  {
+    "question": "How would you describe your ability to concentrate on tasks throughout the day?",
+    "options": [
+      {"text": "I concentrate with ease", "score": 0},
+      {"text": "I concentrate reasonably well", "score": 1},
+      {"text": "I get distracted sometimes", "score": 2},
+      {"text": "I frequently struggle to focus", "score": 3},
+      {"text": "I cannot concentrate at all", "score": 4}
+    ]
+  },
+  {
+    "question": "How often do you feel grateful for things in your life?",
+    "options": [
+      {"text": "Very often", "score": 0},
+      {"text": "Often", "score": 1},
+      {"text": "Occasionally", "score": 2},
+      {"text": "Rarely", "score": 3},
+      {"text": "Almost never", "score": 4}
+    ]
+  },
+  {
+    "question": "How do you feel about your ability to handle criticism or negative feedback?",
+    "options": [
+      {"text": "I take it constructively and grow", "score": 0},
+      {"text": "I accept it after a brief reaction", "score": 1},
+      {"text": "I find it unsettling but manageable", "score": 2},
+      {"text": "I find it very difficult to accept", "score": 3},
+      {"text": "I cannot handle it at all", "score": 4}
+    ]
+  },
+  {
+    "question": "How often do you feel socially connected and supported by those around you?",
+    "options": [
+      {"text": "Almost always", "score": 0},
+      {"text": "Often", "score": 1},
+      {"text": "Sometimes", "score": 2},
+      {"text": "Rarely", "score": 3},
+      {"text": "I feel isolated", "score": 4}
+    ]
+  },
+  {
+    "question": "How often do you catch yourself worrying about things outside your control?",
+    "options": [
+      {"text": "Almost never", "score": 0},
+      {"text": "Occasionally", "score": 1},
+      {"text": "Sometimes", "score": 2},
+      {"text": "Frequently", "score": 3},
+      {"text": "Almost constantly", "score": 4}
+    ]
+  },
+  {
+    "question": "How do you feel physically at the end of a typical day?",
+    "options": [
+      {"text": "Energized and well", "score": 0},
+      {"text": "Mildly tired but fine", "score": 1},
+      {"text": "Noticeably fatigued", "score": 2},
+      {"text": "Exhausted", "score": 3},
+      {"text": "Completely drained", "score": 4}
+    ]
+  },
+  {
+    "question": "How often do you feel in control of your decisions and life direction?",
+    "options": [
+      {"text": "Almost always", "score": 0},
+      {"text": "Often", "score": 1},
+      {"text": "Sometimes I feel uncertain", "score": 2},
+      {"text": "Rarely", "score": 3},
+      {"text": "I feel no control", "score": 4}
+    ]
+  },
+  {
+    "question": "How would you describe your capacity for self-compassion when you make mistakes?",
+    "options": [
+      {"text": "I forgive myself easily", "score": 0},
+      {"text": "I forgive myself after reflection", "score": 1},
+      {"text": "I am somewhat self-critical", "score": 2},
+      {"text": "I am quite hard on myself", "score": 3},
+      {"text": "I am excessively self-critical", "score": 4}
+    ]
+  },
+  {
+    "question": "How often do you take deliberate steps to care for your mental well-being?",
+    "options": [
+      {"text": "Daily", "score": 0},
+      {"text": "Several times a week", "score": 1},
+      {"text": "Occasionally", "score": 2},
+      {"text": "Rarely", "score": 3},
+      {"text": "Never", "score": 4}
+    ]
+  },
+  {
+    "question": "How hopeful do you feel about your personal future?",
+    "options": [
+      {"text": "Very hopeful", "score": 0},
+      {"text": "Generally hopeful", "score": 1},
+      {"text": "Uncertain", "score": 2},
+      {"text": "Somewhat pessimistic", "score": 3},
+      {"text": "Very pessimistic", "score": 4}
+    ]
+  }
+]

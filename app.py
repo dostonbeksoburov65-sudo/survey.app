@@ -17,7 +17,7 @@ app.secret_key = "survey_secret_key_2024"
 # ============================================================
 # VARIABLE TYPES DEMONSTRATION
 # ============================================================
-SURVEY_TITLE: str = "Emotional Resilience Survey"           # str
+SURVEY_TITLE: str = "Academic Self-Efficacy and Confidence in Challenges Scale"           # str
 QUESTION_COUNT: int = 20                                    # int
 MAX_SCORE: float = 80.0                                     # float
 SCORE_BANDS: tuple = (10, 20, 30, 40, 50, 60, 70)          # tuple

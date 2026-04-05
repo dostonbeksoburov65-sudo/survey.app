@@ -1,5 +1,5 @@
 """
-Emotional Resilience Psychological Survey
+Academic Self-Efficacy and Confidence in Challenges Scale
 Fundamentals of Programming — 4BUIS008C
 Flask Web Application
 """

@@ -123,58 +123,53 @@ def validate_dob(dob_str: str) -> tuple:
 # SCORE INTERPRETATION
 # ============================================================
 def get_psychological_state(score: int) -> dict:
-    """
-    Map total score to one of 6 psychological states.
-    Returns a dict with state name, description, color, and advice.
-    """
-    # Conditional statements: if / elif / elif / elif / elif / else
     if score <= 13:
         return {
-            "state": "Excellent Resilience",
+            "state": "Very High Self-Efficacy",
             "emoji": "🌟",
             "color": "#10b981",
-            "description": "You demonstrate outstanding emotional resilience and psychological well-being.",
-            "advice": "Continue your positive habits. Consider mentoring others or sharing your coping strategies."
+            "description": "You demonstrate outstanding academic confidence and self-belief.",
+            "advice": "Keep up your excellent habits. Consider helping peers who struggle with confidence."
         }
     elif score <= 26:
         return {
-            "state": "Good Psychological Balance",
+            "state": "High Self-Efficacy",
             "emoji": "😊",
             "color": "#3b82f6",
-            "description": "You are in a good psychological state with healthy coping mechanisms.",
-            "advice": "Maintain your current routine. Small improvements can take you to an excellent level."
+            "description": "You have a strong belief in your academic abilities.",
+            "advice": "Maintain your current approach. Small improvements can take you even further."
         }
     elif score <= 39:
         return {
-            "state": "Moderate Resilience",
+            "state": "Moderate Self-Efficacy",
             "emoji": "🙂",
             "color": "#f59e0b",
-            "description": "You show moderate resilience but may experience occasional emotional challenges.",
-            "advice": "Consider mindfulness practices, journaling, or talking to a trusted friend regularly."
+            "description": "You show moderate confidence but sometimes doubt your academic abilities.",
+            "advice": "Try setting small achievable goals daily to build your confidence gradually."
         }
     elif score <= 52:
         return {
-            "state": "Reduced Well-being",
+            "state": "Low Self-Efficacy",
             "emoji": "😐",
             "color": "#f97316",
-            "description": "You are experiencing reduced emotional well-being and may benefit from support.",
-            "advice": "Prioritize self-care. Speaking with a counselor or therapist could be very beneficial."
+            "description": "You often doubt your ability to handle academic challenges.",
+            "advice": "Consider speaking with a tutor or academic advisor for structured support."
         }
     elif score <= 65:
         return {
-            "state": "Low Resilience",
+            "state": "Very Low Self-Efficacy",
             "emoji": "😟",
             "color": "#ef4444",
-            "description": "Your psychological state indicates low resilience and possible emotional distress.",
-            "advice": "We strongly recommend seeking professional psychological support or counseling."
+            "description": "You have significant difficulty believing in your academic capabilities.",
+            "advice": "We strongly recommend seeking academic counselling and peer support groups."
         }
     else:
         return {
-            "state": "Critical State",
+            "state": "Critical Lack of Confidence",
             "emoji": "🆘",
             "color": "#7f1d1d",
-            "description": "Your responses indicate significant psychological distress requiring immediate attention.",
-            "advice": "Please reach out to a mental health professional or crisis helpline immediately."
+            "description": "You experience severe self-doubt that may be affecting your academic performance.",
+            "advice": "Please reach out to your university counselling service as soon as possible."
         }
 
 
